@@ -29,7 +29,7 @@ class SpeechRecognition {
   VoidCallback recognitionCompleteHandler;
 
   /// ask for speech  recognizer permission
-  Future activate() => _channel.invokeMethod("speech.activate");
+  Future activate({String locale}) => _channel.invokeMethod("speech.activate", locale);
 
   /// start listening
   Future listen({String locale}) =>
