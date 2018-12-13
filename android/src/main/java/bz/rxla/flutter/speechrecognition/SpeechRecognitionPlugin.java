@@ -61,10 +61,12 @@ public class SpeechRecognitionPlugin implements MethodCallHandler, RecognitionLi
             // is declared in the manifest and accepted during installation ( AndroidSDK 21- )
             result.success(true);
             Locale locale = activity.getResources().getConfiguration().locale;
-            Log.d(LOG_TAG, "Current Locale : " + locale.toString());
+            Log.d(LOG_TAG, "Current Locale : TODO: Check for null" + locale.toString());
             speechChannel.invokeMethod("speech.onCurrentLocale", locale.toString());
         } else if (call.method.equals("speech.listen")) {
             recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, getLocale(call.arguments.toString()));
+            Log.d(LOG_TAG, "speech.listen : " + call.arguments.toString());
+
             cancelled = false;
             speech.startListening(recognizerIntent);
             result.success(true);
