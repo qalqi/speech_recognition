@@ -72,6 +72,9 @@ public class SpeechRecognitionPlugin implements MethodCallHandler, RecognitionLi
             recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, languagePref);
             recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_PREFERENCE, languagePref);
             recognizerIntent.putExtra(RecognizerIntent.EXTRA_ONLY_RETURN_LANGUAGE_PREFERENCE, languagePref);
+            //Hack 
+            recognizerIntent.putExtra("android.speech.extra.EXTRA_ADDITIONAL_LANGUAGES", new String[]{languagePref});
+
             cancelled = false;
             speech.startListening(recognizerIntent);
             result.success(true);
