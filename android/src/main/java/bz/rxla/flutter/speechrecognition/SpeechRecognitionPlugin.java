@@ -66,7 +66,7 @@ public class SpeechRecognitionPlugin implements MethodCallHandler, RecognitionLi
             speechChannel.invokeMethod("speech.onCurrentLocale", call.arguments.toString());
         } else if (call.method.equals("speech.listen")) {
            // recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, getLocale(call.arguments.toString()));
-            String languagePref = getLocale(call.arguments.toString());
+            String languagePref = call.arguments.toString();
             Log.d(LOG_TAG, "speech.listen : " + languagePref);
             
             recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, languagePref);
